@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Plant
 
 
 def home(request):
@@ -11,20 +12,6 @@ def about(request):
 
 
 def plants_index(request):
+   plants = Plant.objects.all()
    return render(request, 'plants/index.html', { 'plants': plants })
 
-
-class Plant: 
-   def __init__(self, name, description, type, price):
-      self.name = name
-      self.description = description
-      self.type = type
-      self.price = price
-
-
-plants = [
-   Plant('Lolo', 'green', 'Kinda rude.', 3),
-   Plant('Sachi', 'hairy', 'Looks like a turtle.', 0),
-   Plant('Fancy', 'blue', 'Happy fluff ball.', 4),
-   Plant('Bonk', 'soft', 'Meows loudly.', 6)
-]
