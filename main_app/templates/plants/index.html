@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/plant-index.css' %}"/> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+<h1>plant List</h1>
+</section>
+
+<section class="card-container">
+{% for plant in plants %}
+   <div class="card">
+      <div class="card-content">
+      <div class="card-img-container">
+         {% comment %} default image for plant here {% endcomment %}
+      </div>
+      <h2 class="card-title">{{ plant.name }}</h2>
+         <p>A ${{ plant.price }} {{ plant.type }}</p>
+      <p><small>{{ plant.description }}</small></p>
+      </div>
+   </div>
+{% endfor %}
+</section>
+
+{% endblock %}
