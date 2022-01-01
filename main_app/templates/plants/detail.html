@@ -25,8 +25,19 @@
 <div class="watering-fertilizer-container">
    <section class="watering">
       <div class="subsection-title">
-         <h2>Watering History</h2>
+         <h2>Watering</h2>
       </div>
+      <h3>Water your {{ plant.name }}</h3>
+      <form
+         action="{% url 'add_watering' plant.id %}"
+         method="post" 
+         class="subsection-content"
+      >
+         {% csrf_token %}
+         {{ watering_form.as_p }}
+         <button type="submit" class="btn submit">Submit</button>
+      </form>
+      <h3>History</h3>
       <table>
          <thead>
             <tr><th>Date</th><th>Time of Day</th></tr>
