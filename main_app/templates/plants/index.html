@@ -14,7 +14,7 @@
 <section class="card-container">
 {% for plant in plants %}
    <div class="card">
-      <a href="/plants/{{ plant.id }}">
+      <a href="{% url 'plants_detail' plant.id %}">
          <div class="card-content">
          <div class="card-img-container">
             {% comment %} default image for plant here {% endcomment %}
