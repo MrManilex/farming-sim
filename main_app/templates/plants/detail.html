@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% comment %} link stylesheet here {% endcomment %}
+{% endblock %}
+
+{% block content %}
+
+<section class="plant-container">
+<div class="plant-img">
+   {% comment %} default plant image here {% endcomment %}
+</div>
+<div class="plant-details">
+   <h1>{{ plant.name }}</h1>
+   <p>A ${{ plant.price }} {{ plant.type }} plant.</p>
+   <p>{{ plant.description }}</p>
+</div>
+</section>
+
+{% endblock %}
