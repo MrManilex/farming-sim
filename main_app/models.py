@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-MEALS = (
+TOD = (
    ('M', 'Morning'),
    ('A', 'Afternoon'),
    ('E', 'Evening')
@@ -23,13 +23,13 @@ class Plant(models.Model):
 
 class Watering(models.Model):
    date = models.DateField('Watering Date')
-   meal = models.CharField(
+   tod = models.CharField(
       max_length=1,
-      choices=MEALS,
-      default=MEALS[0][0]
+      choices=TOD,
+      default=TOD[0][0]
    )
 
    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
    def __str__(self):
-      return f'{self.get_meal_display()} on {self.date}'
+      return f'{self.get_tod_display()} on {self.date}'

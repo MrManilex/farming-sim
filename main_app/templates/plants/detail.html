@@ -35,7 +35,7 @@
             {% for watering in plant.watering_set.all %}
             <tr>
                <td>{{watering.date}}</td>
-               <td>{{watering.get_meal_display}}</td>
+               <td>{{watering.get_tod_display}}</td>
             </tr>
             {% endfor %}
          </tbody>
