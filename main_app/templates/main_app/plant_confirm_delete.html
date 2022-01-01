@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-header">
+   <h1>Plant Sold?</h1>
+   {% comment %} add another plant image here {% endcomment %}
+</div>
+<h2>Are you sure you want to sell {{ object.name }}?</h2>
+
+<form action="" method="POST" class="form">
+{% csrf_token %}
+   <a 
+      href="{% url 'plants_detail' plant.id %}" 
+      class="btn secondary"
+   >
+      Cancel
+   </a>
+   <button type="submit" class="btn danger">Yes</button>
+</form>
+
+{% endblock %}
