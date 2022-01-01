@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Plant(models.Model):
    name = models.CharField(max_length=20)
-   description = models.CharField(max_length=100)
+   description = models.CharField(max_length=200)
    type = models.CharField(max_length=20)
    price = models.IntegerField()
 

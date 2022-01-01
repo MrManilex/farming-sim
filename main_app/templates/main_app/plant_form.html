@@ -19,7 +19,11 @@
    <table>
       {{ form.as_table }}
    </table>
-   <button type="submit" class="btn submit">Add</button>
+   {% if object %}
+      <button type="submit" class="btn submit">Submit</button>
+      {% else %}
+      <button type="submit" class="btn submit">Add</button>
+   {% endif %}
 </form>
 
 {% endblock %}
