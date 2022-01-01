@@ -15,6 +15,10 @@
    <h1>{{ plant.name }}</h1>
    <p>A ${{ plant.price }} {{ plant.type }} plant.</p>
    <p>{{ plant.description }}</p>
+   <div class="plant-actions">
+      <a href="{% url 'plants_update' plant.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'plants_delete' plant.id %}" class="btn danger">Delete</a>
+   </div>
 </div>
 </section>
 
