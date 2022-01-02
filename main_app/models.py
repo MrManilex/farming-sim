@@ -20,7 +20,7 @@ class Plant(models.Model):
 
    def get_absolute_url(self):
       return reverse("plants_detail", kwargs={"plant_id": self.id})
-   
+
    def watered_for_today(self):
       return self.watering_set.filter(date=date.today()).count() >= len(TOD)
 
@@ -37,6 +37,19 @@ class Watering(models.Model):
 
    def __str__(self):
       return f'{self.get_tod_display()} on {self.date}'
-   
+
    class Meta:
       ordering = ['-date']
+
+
+class Fertilizer(models.Model):
+   name = models.CharField(max_length=25)
+   description = models.CharField(max_length=200)
+   effects = models.CharField(max_length=25)
+
+   def __str__(self) -> str:
+      return self.name
+
+   def get_absolute_url(self):
+      return reverse("fertilizer_detail", kwargs={"pk": self.id})
+   
