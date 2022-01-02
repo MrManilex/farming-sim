@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 TOD = (
    ('M', 'Morning'),
@@ -19,6 +20,9 @@ class Plant(models.Model):
 
    def get_absolute_url(self):
       return reverse("plants_detail", kwargs={"plant_id": self.id})
+   
+   def watered_for_today(self):
+      return self.watering_set.filter(date=date.today()).count() >= len(TOD)
 
 
 class Watering(models.Model):

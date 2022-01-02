@@ -42,6 +42,11 @@
          class="subsection-content"
          autocomplete='off'
       >
+         {% if plant.watered_for_today %}
+            <p class='watered'>{{plant.name}} has been watered enough for today.</p>
+         {% else %}
+            <p class='needs-water'>{{plant.name}} is thirsty!</p>
+         {% endif %}
          {% csrf_token %}
          {{ watering_form.as_p }}
          <button type="submit" class="btn submit">Submit</button>
