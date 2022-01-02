@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from main_app.forms import WateringForm
 from .models import Fertilizer, Plant, Watering
 
@@ -50,3 +51,11 @@ class PlantDelete(DeleteView):
 class FertilizerCreate(CreateView):
    model = Fertilizer
    fields = '__all__'
+
+
+class FertilizerList(ListView):
+   model = Fertilizer
+
+
+class FertilizerDetail(DetailView):
+   model = Fertilizer

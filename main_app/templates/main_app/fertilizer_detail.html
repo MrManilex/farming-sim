@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+{% comment %} link stylesheet here  {% endcomment %}
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+   <div class="card-bg"></div>
+   <div class="card-content">
+      <h2>{{ fertilizer.name }}</h2>
+      <h4>{{ fertilizer.effects }}</h4>
+      <p>{{ fertilizer.description }}</p>
+   </div>
+</div>
+{% comment %} <a href="{% url 'fertilizers_update' fertilizer.id %}" class="btn warn">Edit</a>
+<a href="{% url 'fertilizers_delete' fertilizer.id %}" class="btn danger">Delete</a> {% endcomment %}
+
+{% endblock %}

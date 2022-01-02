@@ -51,5 +51,5 @@ class Fertilizer(models.Model):
       return self.name
 
    def get_absolute_url(self):
-      return reverse("fertilizer_detail", kwargs={"pk": self.id})
+      return reverse("fertilizers_detail", kwargs={"pk": self.id})
    
