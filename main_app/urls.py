@@ -13,4 +13,6 @@ urlpatterns = [
    path('fertilizers/create/', views.FertilizerCreate.as_view(), name='fertilizers_create'),
    path('fertilizers/<int:pk>/', views.FertilizerDetail.as_view(), name='fertilizers_detail'),
    path('fertilizers/', views.FertilizerList.as_view(), name='fertilizers_index'),
+   path('fertilizers/<int:pk>/update/', views.FertilizerUpdate.as_view(), name='fertilizers_update'),
+   path('fertilizers/<int:pk>/delete/', views.FertilizerDelete.as_view(), name='fertilizers_delete'),
 ]

@@ -59,3 +59,13 @@ class FertilizerList(ListView):
 
 class FertilizerDetail(DetailView):
    model = Fertilizer
+
+
+class FertilizerUpdate(UpdateView):
+   model = Fertilizer
+   fields = ['effects', 'description']
+
+
+class FertilizerDelete(DeleteView):
+   model = Fertilizer
+   success_url = '/fertilizers/'
