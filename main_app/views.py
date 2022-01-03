@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView
 from main_app.forms import WateringForm
 from .models import Fertilizer, Plant, Watering
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 
 def home(request):
@@ -41,11 +43,27 @@ def assoc_fertilizer(request, plant_id, fertilizer_id):
    return redirect('plants_detail', plant_id=plant_id)
 
 
+def signup(request):
+   error_message = ''
+   if request.method == 'POST':
+      form = UserCreationForm(request.POST)
+      if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('cats_index')
+      else:
+            error_message = 'Invalid sign up - try again'
+   form = UserCreationForm()
+   context = {'form': form, 'error_message': error_message}
+   return render(request, 'signup.html', context)
+
+
 class PlantCreate(CreateView):
    model = Plant
    fields = ['name', 'description', 'type', 'price']
+
    def form_valid(self, form):
-      form.instance.user = self.request.user 
+      form.instance.user = self.request.user
       return super().form_valid(form)
 
 
