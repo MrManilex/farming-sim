@@ -6,7 +6,8 @@ from .models import Fertilizer, Plant, Watering
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home(request):
    return render(request, 'home.html')
@@ -15,9 +16,9 @@ def home(request):
 def about(request):
    return render(request, 'about.html')
 
-
+@login_required(login_url='/')
 def plants_index(request):
-   plants = Plant.objects.all()
+   plants = Plant.objects.filter(user=request.user)
    return render(request, 'plants/index.html', {'plants': plants})
 
 
@@ -58,7 +59,8 @@ def signup(request):
    return render(request, 'signup.html', context)
 
 
-class PlantCreate(CreateView):
+class PlantCreate(LoginRequiredMixin, CreateView):
+   login_url = '/'
    model = Plant
    fields = ['name', 'description', 'type', 'price']
 
@@ -67,35 +69,42 @@ class PlantCreate(CreateView):
       return super().form_valid(form)
 
 
-class PlantUpdate(UpdateView):
+class PlantUpdate(LoginRequiredMixin, UpdateView):
+   login_url = '/'
    model = Plant
    fields = ['description', 'type', 'price']
 
 
-class PlantDelete(DeleteView):
+class PlantDelete(LoginRequiredMixin, DeleteView):
+   login_url = '/'
    model = Plant
    success_url = '/plants/'
 
 
-class FertilizerCreate(CreateView):
+class FertilizerCreate(LoginRequiredMixin, CreateView):
+   login_url = '/'
    model = Fertilizer
    fields = '__all__'
 
 
-class FertilizerList(ListView):
+class FertilizerList(LoginRequiredMixin, ListView):
+   login_url = '/'
    model = Fertilizer
 
 
-class FertilizerDetail(DetailView):
+class FertilizerDetail(LoginRequiredMixin, DetailView):
+   login_url = '/'
    model = Fertilizer
 
 
-class FertilizerUpdate(UpdateView):
+class FertilizerUpdate(LoginRequiredMixin, UpdateView):
+   login_url = '/'
    model = Fertilizer
    fields = ['effects', 'description']
 
 
-class FertilizerDelete(DeleteView):
+class FertilizerDelete(LoginRequiredMixin, DeleteView):
+   login_url = '/'
    model = Fertilizer
    success_url = '/fertilizers/'
 
