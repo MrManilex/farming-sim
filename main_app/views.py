@@ -20,7 +20,8 @@ def plants_index(request):
 
 def plants_detail(request, plant_id):
    plant = Plant.objects.get(id=plant_id)
-   fertilizers_plant_doesnt_have = Fertilizer.objects.exclude(id__in = plant.fertilizers.all().values_list('id'))
+   fertilizers_plant_doesnt_have = Fertilizer.objects.exclude(
+      id__in=plant.fertilizers.all().values_list('id'))
    watering_form = WateringForm()
    return render(request, 'plants/detail.html', {'plant': plant, 'watering_form': watering_form, 'fertilizers': fertilizers_plant_doesnt_have})
 
@@ -31,6 +32,11 @@ def add_watering(request, plant_id):
       new_watering = form.save(commit=False)
       new_watering.plant_id = plant_id
       new_watering.save()
+   return redirect('plants_detail', plant_id=plant_id)
+
+
+def assoc_fertilizer(request, plant_id, fertilizer_id):
+   Plant.objects.get(id=plant_id).fertilizers.add(fertilizer_id)
    return redirect('plants_detail', plant_id=plant_id)
 
 

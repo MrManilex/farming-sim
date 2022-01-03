@@ -105,7 +105,7 @@
                   <a href="{% url 'fertilizers_detail' fertilizer.id %}">
                      <p>{{ fertilizer.name }} that {{ fertilizer.effects }}</p>
                   </a>
-                  <form action="" method="post">
+                  <form action="{% url 'assoc_fertilizer' plant.id fertilizer.id %}" method="post">
                      {% csrf_token %}
                      <button type="submit" class="btn submit">Give Fertilizer</button>
                   </form>
