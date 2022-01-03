@@ -44,6 +44,9 @@ def assoc_fertilizer(request, plant_id, fertilizer_id):
 class PlantCreate(CreateView):
    model = Plant
    fields = ['name', 'description', 'type', 'price']
+   def form_valid(self, form):
+      form.instance.user = self.request.user 
+      return super().form_valid(form)
 
 
 class PlantUpdate(UpdateView):

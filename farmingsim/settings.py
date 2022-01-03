@@ -75,10 +75,10 @@ WSGI_APPLICATION = 'farmingsim.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'farmingsim',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'farmingsim',
+    }
 }
 
 
@@ -117,6 +117,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+LOGIN_REDIRECT_URL = 'fertilizers_index'
+
+LOGOUT_REDIRECT_URL = 'home'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

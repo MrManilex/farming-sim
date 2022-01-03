@@ -28,11 +28,17 @@
          </div>
          <nav>
             <ul>
-               <li><a href="{% url 'plants_index' %}">View All Plants</a></li>
-               <li><a href="{% url 'fertilizers_index' %}">View All Fertilizers</a></li>
-               <li><a href="{% url 'plants_create' %}">Add a Plant</a></li>
-               <li><a href="{% url 'fertilizers_create' %}">Add a Fertilizer</a></li>
-               <li><a href="{% url 'about' %}">About</a></li>
+               {% if user.is_authenticated %}
+                  <li><a href="{% url 'plants_index' %}">View All Plants</a></li>
+                  <li><a href="{% url 'fertilizers_index' %}">View All Fertilizers</a></li>
+                  <li><a href="{% url 'plants_create' %}">Add a Plant</a></li>
+                  <li><a href="{% url 'fertilizers_create' %}">Add a Fertilizer</a></li>
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'logout' %}">Log out</a></li>
+               {% else %}
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'home' %}">Login</a></li>
+               {% endif %}
             </ul>
          </nav>
       </header>
