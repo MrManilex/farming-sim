@@ -29,7 +29,7 @@
       </div>
    </div>
 </section>
-{% comment %} Existing cat-container above {% endcomment %}
+{% comment %} Existing plant-container above {% endcomment %}
 <div class="watering-fertilizer-container">
    <section class="watering">
       <div class="subsection-title">
@@ -70,6 +70,35 @@
          <p class='subsection-content'>{{plant.name}} needs to be watered!!</p>
       {% endif %}
    </section>
+
+   <section class="fertilizers">
+      <div class="subsection-title">
+         <h2>Fertilizers</h2>
+         {% comment %} add small image here??? {% endcomment %}
+      </div>
+      <h3>{{ plant.name }}'s fertilizers</h3>
+      <div class="subsection-content">
+         {% if plant.fertilizers.count %}
+            {% for fertilizer in plant.fertilizers.all %}
+            <div class="fertilizer-container">
+               <div 
+                  class="color-block"
+                  style="background-color: {{ fertilizer.color }}"
+               ></div>
+               <a href="{% url 'fertilizers_detail' fertilizer.id %}">
+                  <p>{{ fertilizer.name }} that {{ fertilizer.effects }}</p>
+               </a>
+            </div>
+            {% endfor %}
+         {% else %}
+            <p class="no-fertilizers">{{plant.name}} doesn't have any fertilizer...</p>
+         {% endif %}
+      </div>
+      <h3>Available Fertilizers</h3>
+      <div class="subsection-content">
+         {% comment %} We'll display available fertilizers here {% endcomment %}
+      </div>
+      </section>
 </div>
 
 {% endblock %}

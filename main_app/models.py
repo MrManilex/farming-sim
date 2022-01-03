@@ -9,11 +9,24 @@ TOD = (
 )
 
 
+class Fertilizer(models.Model):
+   name = models.CharField(max_length=25)
+   description = models.CharField(max_length=200)
+   effects = models.CharField(max_length=25)
+
+   def __str__(self) -> str:
+      return self.name
+
+   def get_absolute_url(self):
+      return reverse("fertilizers_detail", kwargs={"pk": self.id})
+
+
 class Plant(models.Model):
    name = models.CharField(max_length=20)
    description = models.CharField(max_length=200)
    type = models.CharField(max_length=20)
    price = models.IntegerField()
+   fertilizers = models.ManyToManyField(Fertilizer)
 
    def __str__(self):
       return self.name
@@ -40,16 +53,3 @@ class Watering(models.Model):
 
    class Meta:
       ordering = ['-date']
-
-
-class Fertilizer(models.Model):
-   name = models.CharField(max_length=25)
-   description = models.CharField(max_length=200)
-   effects = models.CharField(max_length=25)
-
-   def __str__(self) -> str:
-      return self.name
-
-   def get_absolute_url(self):
-      return reverse("fertilizers_detail", kwargs={"pk": self.id})
-   

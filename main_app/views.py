@@ -35,7 +35,7 @@ def add_watering(request, plant_id):
 
 class PlantCreate(CreateView):
    model = Plant
-   fields = '__all__'
+   fields = ['name', 'description', 'type', 'price']
 
 
 class PlantUpdate(UpdateView):
