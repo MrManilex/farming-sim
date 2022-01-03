@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 TOD = (
    ('M', 'Morning'),
@@ -27,6 +28,7 @@ class Plant(models.Model):
    type = models.CharField(max_length=20)
    price = models.IntegerField()
    fertilizers = models.ManyToManyField(Fertilizer)
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
    def __str__(self):
       return self.name

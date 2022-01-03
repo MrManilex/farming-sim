@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from main_app.forms import WateringForm
 from .models import Fertilizer, Plant, Watering
+from django.contrib.auth.views import LoginView
 
 
 def home(request):
@@ -76,3 +77,7 @@ class FertilizerUpdate(UpdateView):
 class FertilizerDelete(DeleteView):
    model = Fertilizer
    success_url = '/fertilizers/'
+
+
+class Home(LoginView):
+   template_name = 'home.html'
