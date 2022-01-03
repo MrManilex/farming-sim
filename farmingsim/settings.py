@@ -120,7 +120,7 @@ STATIC_URL = 'static/'
 
 LOGIN_URL = 'home'
 
-LOGIN_REDIRECT_URL = 'fertilizers_index'
+LOGIN_REDIRECT_URL = 'plants_index'
 
 LOGOUT_REDIRECT_URL = 'home'
 
