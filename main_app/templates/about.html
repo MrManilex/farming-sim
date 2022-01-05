@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+{% endblock %}
 
 {% block content %}
 
 <h1>About the Farming Simulator</h1>
-<p>plants yes plants yes yes</p>
+<p>Farming Simulator</p>
 
 {% endblock %}
