@@ -7,6 +7,9 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Farming Simulator</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
    {% comment %} <link
    rel="shortcut icon"
@@ -18,14 +21,12 @@
 </head>
    <body>
       <header>
-         <div class="header-logo-container">
-            <a href="/">
-               <img 
-               src="" 
-               alt="The Farming Simulator Logo"
-               >
-            </a>
-         </div>
+         <a class='title-logo' href="/">
+            <h1>Farming Simulator</h1>
+            farming simulator
+         </a>
+         {% comment %} <div class="header-logo-container">
+         </div> {% endcomment %}
          <nav>
             <ul>
                {% if user.is_authenticated %}
