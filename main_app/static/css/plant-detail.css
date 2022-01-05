@@ -18,6 +18,7 @@
 
 .plant-details {
    width: 98%;
+   color: purple;
 }
 
 .plant-actions {
@@ -35,6 +36,7 @@
    display: flex;
    align-items: center;
    margin-bottom: 12px;
+   color: purple;
 }
 
 .subsection-content {
@@ -45,6 +47,10 @@
    display: flex;
    align-items: center;
    flex-wrap: wrap;
+}
+
+div > h3 {
+   color: purple;
 }
 
 .color-block {
@@ -114,6 +120,11 @@
 
 .subsection-title img:first-of-type {
    margin-left: 16px;
+}
+
+.watering {
+   padding: 40px;
+   background-color: seagreen;
 }
 
 .watering h2,
@@ -189,31 +200,31 @@
 
 @media only screen and (min-width: 768px) {
    .plant-container {
-   padding: 35px 30px;
-   flex-direction: row;
-   align-items: center;
-   justify-content: start;
+      padding: 35px 30px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
    }
 
    .plant-img {
-   width: 25%;
-   max-width: 250px;
-   margin-right: 25px;
+      width: 25%;
+      max-width: 250px;
+      margin-right: 25px;
    }
 
    .watering-toy-container {
-   flex-direction: row;
-   justify-content: space-around;
-   align-items: flex-start;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
    }
 
    .watering-toy-container > section {
-   width: 45%;
+      width: 45%;
    }
 }
 
 @media only screen and (min-width: 1024px) {
    .watering-toy-container {
-   padding: 0 40px;
+      padding: 0 40px;
    }
 }

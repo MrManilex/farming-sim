@@ -17,7 +17,7 @@
 
 <section class="plant-container">
    <div class="plant-img">
-      {% comment %} default plant image here {% endcomment %}
+      <img src="{% static 'images/wheat.png' %}" alt="">
    </div>
    <div class="plant-details">
       <h1>{{ plant.name }}</h1>
@@ -29,7 +29,6 @@
       </div>
    </div>
 </section>
-{% comment %} Existing plant-container above {% endcomment %}
 <div class="watering-fertilizer-container">
    <section class="watering">
       <div class="subsection-title">
@@ -73,17 +72,14 @@
    <section class="fertilizers">
       <div class="subsection-title">
          <h2>Fertilizers</h2>
-         {% comment %} add small image here??? {% endcomment %}
       </div>
-      <h3>{{ plant.name }}'s fertilizers</h3>
+      <div>
+         <h3>{{ plant.name }}'s Fertilizers:</h3>
+      </div>
       <div class="subsection-content">
          {% if plant.fertilizers.count %}
             {% for fertilizer in plant.fertilizers.all %}
                <div class="fertilizer-container">
-                  <div 
-                     class="color-block"
-                     style="background-color: {{ fertilizer.color }}"
-                  ></div>
                   <a href="{% url 'fertilizers_detail' fertilizer.id %}">
                      <p>{{ fertilizer.name }} that {{ fertilizer.effects }}</p>
                   </a>
@@ -93,15 +89,13 @@
             <p class="no-fertilizers">{{plant.name}} doesn't have any fertilizer...</p>
          {% endif %}
       </div>
-      <h3>Available Fertilizers</h3>
+      <div>
+         <h3>Available Fertilizers:</h3>
+      </div>
       <div class="subsection-content">
          {% if fertilizers.count %}
             {% for fertilizer in fertilizers.all %}
                <div class="fertilizer-container">
-                  <div 
-                     class="color-block"
-                     style="background-color: {{ fertilizer.color }}"
-                  ></div>
                   <a href="{% url 'fertilizers_detail' fertilizer.id %}">
                      <p>{{ fertilizer.name }} that {{ fertilizer.effects }}</p>
                   </a>
