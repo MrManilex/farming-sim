@@ -22,10 +22,9 @@ body {
    display: flex;
    flex-direction: column;
    align-items: center;
-   /* font-family: 'Bebas Neue', cursive; */
    font-family: 'Press Start 2P', cursive;
    min-height: 100vh;
-   --nav-bg: rgba(0, 255, 42, 0.7);
+   --nav-bg: rgba(107, 255, 127, 0.9);
    --nav-bg-ff: rgba(107, 255, 127, 0.9);
    --borders: rgb(0, 0, 0) solid 2px;
    --text-color: rgb(17, 20, 17);
@@ -43,6 +42,8 @@ body {
    --font-l: 1.8rem;
    --font-reg: 1.6rem;
    --card-border-radius: 6px;
+   /* background-color: rgb(240, 255, 243); */
+   background-image: url(../images/bg.png)
 }
 
 header {
@@ -69,7 +70,7 @@ nav a {
    text-decoration: none;
    color: var(--text-color);
    font-weight: 600;
-   font-size: 16px;
+   font-size: 14px;
 }
 
 nav a:hover {

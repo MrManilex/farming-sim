@@ -11,22 +11,19 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-   {% comment %} <link
-   rel="shortcut icon"
-   type="image/png"
-   href="{% static 'images/splash.svg' %}"
-   > {% endcomment %}
+   <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/bale.png' %}"
+   >
    {% block head %}
    {% endblock %}
 </head>
-   <body>
+   <body style: 'background-image: url('{% static 'images/bg.png' %}')'>
       <header>
          <a class='title-logo' href="/">
-            <h1>Farming Simulator</h1>
-            farming simulator
+            <h1>Best Farming Simulator</h1>
          </a>
-         {% comment %} <div class="header-logo-container">
-         </div> {% endcomment %}
          <nav>
             <ul>
                {% if user.is_authenticated %}
