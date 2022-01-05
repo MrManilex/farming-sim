@@ -1,0 +1,10 @@
+.page-header{
+   justify-content: center;
+   color: purple;
+}
+.card-content {
+   display: flex;
+}
+.plant-content {
+   color: purple;
+}
